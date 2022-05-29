@@ -37,14 +37,27 @@ const scrambleWords = (arr) => {
 btn.addEventListener('click', function () {
     if (!play) {
         play = true;
-        btn.innerHTML = "Guess";
+        
+        btn.innerHTML = "Check";
         guess.classList.toggle('hidden');
         newWords = createWords();
         randWords = scrambleWords(newWords.split("")).join("");
-        //console.log(randWords);
-        msg.innerHTML = randWords;
-    
+        msg.innerHTML = ` Guess the Word ${randWords}`;
 
+    }
+    else{
+
+        let tempword = guess.value;
+        if(tempword === newWords){
+            play=false;
+            msg.innerHTML = `Awesome Its is Correct . It is ${newWords}`;
+            btn.innerHTML = "Start Again";
+            guess.classList.toggle('hidden');
+            guess.value ="";
+        }
+        else{
+            msg.innerHTML = `Sorry Boss. Its is Incorrect . Plz try Again ${randWords}`;
+        }
     }
 
 })
