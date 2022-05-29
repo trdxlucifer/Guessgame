@@ -10,7 +10,7 @@ let Word = ["python", "c++", "javascript", "ruby", "hash", "typescript", "java",
 const createWords = () => {
 
     let ranNum = Math.floor(Math.random() * Word.length);
-    let Newtemp = Word[ranNum];
+    let Newtemp = Word[ranNum].toUpperCase();
     // console.log(Newtemp.split(""))
     return Newtemp;
 }
@@ -47,7 +47,7 @@ btn.addEventListener('click', function () {
     }
     else{
 
-        let tempword = guess.value;
+        let tempword = guess.value.toUpperCase();
         if(tempword === newWords){
             play=false;
             msg.innerHTML = `Awesome Its is Correct . It is ${newWords}`;
